@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar color='light' light expand='md'>
-        <NavbarBrand href='/'>Base App</NavbarBrand>
+        <NavbarBrand href='/'>Hacker News Reader</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className='ml-auto' navbar>
@@ -35,13 +35,10 @@ const Layout = ({ children }) => {
                 <Link to='/'>
                   <DropdownItem>Home</DropdownItem>
                 </Link>
-                <Link to='/about'>
-                  <DropdownItem>About</DropdownItem>
-                </Link>
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-              <NavLink target='_blank' href='https://github.com/johnandresmedina/base-react-app'>
+              <NavLink target='_blank' href='https://github.com/johnandresmedina/hacker-news-reader'>
                 GitHub
               </NavLink>
             </NavItem>

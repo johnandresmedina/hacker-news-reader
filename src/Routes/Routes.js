@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Layout from '../Layout';
-import App from '../App';
-import About from '../About';
+import Story from '../Story';
 
 const Routes = () => {
   return (
@@ -11,10 +10,7 @@ const Routes = () => {
       <Layout>
         <Switch>
           <Route exact path='/'>
-            <App />
-          </Route>
-          <Route path='/about'>
-            <About />
+            <Story />
           </Route>
         </Switch>
       </Layout>
