@@ -1,10 +1,10 @@
 {
-  "name": "base-react-app",
+  "name": "hacker-news-reader",
   "version": "0.1.0",
-  "description": "A base create-react-app to be used as a template",
+  "description": "A hacker news reader",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnandresmedina/base-react-app.git"
+    "url": "git+https://github.com/johnandresmedina/hacker-news-reader.git"
   },
   "keywords": [
     "react.js"
