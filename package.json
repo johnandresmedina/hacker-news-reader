@@ -40,7 +40,8 @@
     "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "prettier": "^1.19.1",

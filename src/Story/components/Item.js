@@ -1,6 +1,7 @@
 import './Item.scss';
 
 import React from 'react';
+import { format } from 'timeago.js';
 import { ListGroupItem, Badge } from 'reactstrap';
 
 const getComments = ({ length }) => {
@@ -11,7 +12,7 @@ const getComments = ({ length }) => {
   ) : null;
 };
 
-const Item = ({ by, score, title, type, kids = [] }) => {
+const Item = ({ by, score, time, title, type, kids = [] }) => {
   return (
     <ListGroupItem>
       <div className='item'>
@@ -20,7 +21,7 @@ const Item = ({ by, score, title, type, kids = [] }) => {
           {title}, by {by}
         </div>
         <div>
-          {score} Points, {getComments(kids)}
+          {score} Points, {format(new Date(time * 1000).toISOString())}, {getComments(kids)}
         </div>
       </div>
     </ListGroupItem>
