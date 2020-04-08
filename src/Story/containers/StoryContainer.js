@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _isEmpty from 'lodash/isEmpty';
 
-import { fetchStoryIds } from '../actions';
+import { fetchStoryIds, fetchStories } from '../actions';
+import { storyIdsSelector, storiesSelector, hasMoreStoriesSelector } from '../selector';
 
 import CustomSpinner from '../../common/spinner/CustomSpinner';
 import Story from '../components/Story';
 
-const StoryContainer = ({ fetchStoryIds, stories }) => {
+const StoryContainer = ({ fetchStories, fetchStoryIds, hasMoreStories, page, status, stories, storyIds }) => {
   useEffect(() => {
     let didCancel = false;
 
@@ -20,17 +22,40 @@ const StoryContainer = ({ fetchStoryIds, stories }) => {
     };
   }, [fetchStoryIds]);
 
-  return !_isEmpty(stories) ? <Story stories={stories} /> : <CustomSpinner />;
+  return !_isEmpty(stories) ? (
+    <Story
+      fetchStories={fetchStories}
+      hasMoreStories={hasMoreStories}
+      page={page}
+      status={status}
+      stories={stories}
+      storyIds={storyIds}
+    />
+  ) : (
+    <CustomSpinner />
+  );
+};
+
+StoryContainer.propTypes = {
+  fetchStories: PropTypes.func.isRequired,
+  fetchStoryIds: PropTypes.func.isRequired,
+  hasMoreStories: PropTypes.bool.isRequired,
+  page: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired,
+  stories: PropTypes.array.isRequired,
+  storyIds: PropTypes.array.isRequired,
 };
 
 export default connect(
   state => ({
-    stories: state.story.stories,
+    hasMoreStories: hasMoreStoriesSelector(state),
     page: state.story.page,
-    storyIds: state.story.storyIds,
     status: state.story.status,
+    stories: storiesSelector(state),
+    storyIds: storyIdsSelector(state),
   }),
   {
     fetchStoryIds,
+    fetchStories,
   },
 )(StoryContainer);

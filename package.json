@@ -12,7 +12,7 @@
   "author": "John Medina",
   "license": "MIT",
   "scripts": {
-    "eslint": "eslint src --color",
+    "lint": "eslint src --color",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,6 +34,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-infinite-scroll-component": "^5.0.4",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
@@ -41,6 +42,7 @@
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
@@ -51,7 +53,31 @@
     "redux-logger": "^3.0.6"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+      "react",
+      "jsx-a11y"
+    ],
+    "ignorePatterns": [
+      "serviceWorker.js"
+    ],
+    "rules": {
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "react/sort-prop-types": 2
+    }
   },
   "prettier": {
     "printWidth": 120,
@@ -71,9 +97,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint",
+      "prettier --write"
     ]
   },
   "browserslist": {
