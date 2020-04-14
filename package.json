@@ -97,10 +97,8 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint",
-      "prettier --write"
-    ]
+    "src/**/*.{js,jsx,ts,tsx}": "eslint",
+    "src/**/*.{js,jsx,json,ts,tsx,scss,md}": "prettier --write"
   },
   "browserslist": {
     "production": [
