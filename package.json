@@ -17,18 +17,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
-    "prettier:check": "prettier --check \"src/**/*.{js,json,scss,md}\"",
-    "prettier": "prettier --write \"src/**/*.{js,json,scss,md}\" ",
+    "format:check": "prettier --check \"src/**/*.{js,json,scss,md}\"",
+    "format": "prettier --write \"src/**/*.{js,json,scss,md}\" ",
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.1",
-    "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.7",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
@@ -46,6 +41,11 @@
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.1",
+    "@testing-library/user-event": "^7.2.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "redux-devtools": "^3.5.0",
     "redux-devtools-dock-monitor": "^1.1.3",
